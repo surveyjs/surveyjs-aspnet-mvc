@@ -5,6 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace surveyjs_aspnet_mvc.Controllers {
+
+    public class ChangeSurveyModel {
+        public string Id { get; set; }
+        public string Json { get; set; }
+        public string Text { get; set; }
+    }
+
     [Route("api/[controller]")]
     public class ServiceController : Controller {
 
@@ -18,6 +25,27 @@ namespace surveyjs_aspnet_mvc.Controllers {
         public string GetSurvey(string surveyId) {
             var db = new SessionStorage(HttpContext.Session);
             return db.GetSurvey(surveyId);
+        }
+
+        [HttpGet("create")]
+        public JsonResult Create(string name) {
+            var db = new SessionStorage(HttpContext.Session);
+            db.StoreSurvey(name, "{}");
+            return Json("Ok");
+        }
+
+        [HttpPost("changeJson")]
+        public string ChangeJson([FromBody]ChangeSurveyModel model) {
+            var db = new SessionStorage(HttpContext.Session);
+            db.StoreSurvey(model.Id, model.Json);
+            return db.GetSurvey(model.Id);
+        }
+
+        [HttpGet("delete")]
+        public JsonResult Delete(string id) {
+            var db = new SessionStorage(HttpContext.Session);
+            db.DeleteSurvey(id);
+            return Json("Ok");
         }
 
         // // GET api/values/5

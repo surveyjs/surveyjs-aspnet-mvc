@@ -66,5 +66,17 @@ namespace surveyjs_aspnet_mvc {
         public string GetSurvey(string surveyId) {
             return GetSurveys()[surveyId];
         }
+
+        public void StoreSurvey(string surveyId, string jsonString) {
+            var storage = GetSurveys();
+            storage[surveyId] = jsonString;
+            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+        }
+
+        public void DeleteSurvey(string surveyId) {
+            var storage = GetSurveys();
+            storage.Remove(surveyId);
+            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+        }
     }
 }
