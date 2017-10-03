@@ -63,6 +63,11 @@ namespace surveyjs_aspnet_mvc {
             return GetFromSession<Dictionary<string, string>>("SurveyStorage", surveys);
         }
 
+        public Dictionary<string, List<string>> GetResults() {
+            Dictionary<string, List<string>> results = new Dictionary<string, List<string>>();
+            return GetFromSession<Dictionary<string, List<string>>>("ResultsStorage", results);
+        }
+
         public string GetSurvey(string surveyId) {
             return GetSurveys()[surveyId];
         }
@@ -77,6 +82,20 @@ namespace surveyjs_aspnet_mvc {
             var storage = GetSurveys();
             storage.Remove(surveyId);
             session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+        }
+
+        public void PostResults(string postId, string resultJson) {
+            var storage = GetResults();
+            if(!storage.ContainsKey(postId)) {
+                storage[postId] = new List<string>();
+            }
+            storage[postId].Add(resultJson);
+            session.SetString("ResultsStorage", JsonConvert.SerializeObject(storage));
+        }
+
+        public List<string> GetResults(string postId) {
+            var storage = GetResults();
+            return storage.ContainsKey(postId) ? storage[postId] : new List<string>();
         }
     }
 }

@@ -12,6 +12,11 @@ namespace surveyjs_aspnet_mvc.Controllers {
         public string Text { get; set; }
     }
 
+    public class PostSurveyResultModel {
+        public string postId { get; set; }
+        public string surveyResult { get; set; }
+    }
+
     [Route("api/[controller]")]
     public class ServiceController : Controller {
 
@@ -46,6 +51,19 @@ namespace surveyjs_aspnet_mvc.Controllers {
             var db = new SessionStorage(HttpContext.Session);
             db.DeleteSurvey(id);
             return Json("Ok");
+        }
+
+        [HttpPost("post")]
+        public JsonResult PostResult([FromBody]PostSurveyResultModel model) {
+            var db = new SessionStorage(HttpContext.Session);
+            db.PostResults(model.postId, model.surveyResult);
+            return Json("Ok");
+        }
+
+        [HttpGet("results")]
+        public JsonResult GetResults(string postId) {
+            var db = new SessionStorage(HttpContext.Session);
+            return Json(db.GetResults(postId));
         }
 
         // // GET api/values/5
