@@ -1,3 +1,13 @@
+function getParams() {
+    var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    var result = {};
+    url.forEach(function(item) {
+        var param = item.split("=");
+        result[param[0]] = param[1];
+    });
+    return result;
+}
+  
 function init() {
 
     Survey.dxSurveyService.serviceUrl = "http://localhost:5000/api/Service";
@@ -5,7 +15,7 @@ function init() {
     Survey.Survey.cssType = "bootstrap";
 
     var url = new URL(document.URL);
-    var surveyId = url.searchParams.get("id");        
+    var surveyId = getParams()["id"];
     var model = new Survey.Model({ surveyId: surveyId, surveyPostId: surveyId });
     window.survey = model;
     model.render("surveyElement");

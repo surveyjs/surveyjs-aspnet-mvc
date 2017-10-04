@@ -1,7 +1,17 @@
+function getParams() {
+    var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    var result = {};
+    url.forEach(function(item) {
+        var param = item.split("=");
+        result[param[0]] = param[1];
+    });
+    return result;
+}
+  
 function SurveyManager(baseUrl, accessKey) {
     var self = this;
     var url = new URL(document.URL);
-    self.surveyId = url.searchParams.get("id");        
+    self.surveyId = getParams()["id"];
     self.results = ko.observableArray();
 
     self.loadResults = function () {

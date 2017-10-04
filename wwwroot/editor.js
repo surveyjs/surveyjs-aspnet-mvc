@@ -1,8 +1,17 @@
+function getParams() {
+    var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    var result = {};
+    url.forEach(function(item) {
+        var param = item.split("=");
+        result[param[0]] = param[1];
+    });
+    return result;
+}
+  
 Survey.dxSurveyService.serviceUrl = "http://localhost:5000/api/Service";
 var accessKey = "";
 var editor = new SurveyEditor.SurveyEditor("editor");
-var url = new URL(document.URL);
-var surveyId = url.searchParams.get("id");        
+var surveyId = getParams()["id"];
 editor.loadSurvey(surveyId);
 editor.saveSurveyFunc = function (saveNo, callback) {
     var xhr = new XMLHttpRequest();
