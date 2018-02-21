@@ -46,6 +46,14 @@ namespace surveyjs_aspnet_mvc.Controllers
             return Json("Ok");
         }
 
+        [HttpGet("changeName")]
+        public JsonResult ChangeName(string id, string name)
+        {
+            var db = new SessionStorage(HttpContext.Session);
+            db.ChangeName(id, name);
+            return Json("Ok");
+        }
+
         [HttpPost("changeJson")]
         public string ChangeJson([FromBody]ChangeSurveyModel model)
         {

@@ -6,23 +6,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace surveyjs_aspnet_mvc {
-    public class SessionStorage {
+namespace surveyjs_aspnet_mvc
+{
+    public class SessionStorage
+    {
         private ISession session;
 
-        public SessionStorage(ISession session) {
+        public SessionStorage(ISession session)
+        {
             this.session = session;
         }
 
-        public T GetFromSession<T>(string storageId, T defaultValue) {
-            if(string.IsNullOrEmpty(session.GetString(storageId))) {
+        public T GetFromSession<T>(string storageId, T defaultValue)
+        {
+            if (string.IsNullOrEmpty(session.GetString(storageId)))
+            {
                 session.SetString(storageId, JsonConvert.SerializeObject(defaultValue));
             }
             var value = session.GetString(storageId);
-            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);            
+            return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
         }
 
-        public Dictionary<string, string> GetSurveys() {
+        public Dictionary<string, string> GetSurveys()
+        {
             Dictionary<string, string> surveys = new Dictionary<string, string>();
             surveys["MySurvey1"] = @"{
                 ""pages"": [
@@ -63,37 +69,52 @@ namespace surveyjs_aspnet_mvc {
             return GetFromSession<Dictionary<string, string>>("SurveyStorage", surveys);
         }
 
-        public Dictionary<string, List<string>> GetResults() {
+        public Dictionary<string, List<string>> GetResults()
+        {
             Dictionary<string, List<string>> results = new Dictionary<string, List<string>>();
             return GetFromSession<Dictionary<string, List<string>>>("ResultsStorage", results);
         }
 
-        public string GetSurvey(string surveyId) {
+        public string GetSurvey(string surveyId)
+        {
             return GetSurveys()[surveyId];
         }
 
-        public void StoreSurvey(string surveyId, string jsonString) {
+        public void StoreSurvey(string surveyId, string jsonString)
+        {
             var storage = GetSurveys();
             storage[surveyId] = jsonString;
             session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
         }
 
-        public void DeleteSurvey(string surveyId) {
+        public void ChangeName(string id, string name)
+        {
+            var storage = GetSurveys();
+            storage[name] = storage[id];
+            storage.Remove(id);
+            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+        }
+
+        public void DeleteSurvey(string surveyId)
+        {
             var storage = GetSurveys();
             storage.Remove(surveyId);
             session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
         }
 
-        public void PostResults(string postId, string resultJson) {
+        public void PostResults(string postId, string resultJson)
+        {
             var storage = GetResults();
-            if(!storage.ContainsKey(postId)) {
+            if (!storage.ContainsKey(postId))
+            {
                 storage[postId] = new List<string>();
             }
             storage[postId].Add(resultJson);
             session.SetString("ResultsStorage", JsonConvert.SerializeObject(storage));
         }
 
-        public List<string> GetResults(string postId) {
+        public List<string> GetResults(string postId)
+        {
             var storage = GetResults();
             return storage.ContainsKey(postId) ? storage[postId] : new List<string>();
         }
