@@ -12,7 +12,8 @@ function SurveyManager(baseUrl, accessKey) {
         Object.keys(result).map(function(key) {
           return {
             id: key,
-            survey: result[key]
+            name: result[key].name || key,
+            survey: result[key].json || result[key]
           };
         })
       );
@@ -35,22 +36,23 @@ function SurveyManager(baseUrl, accessKey) {
   };
 
   self.deleteSurvey = function(id, onDelete) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", baseUrl + "/delete?accessKey=" + accessKey + "&id=" + id);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onload = function() {
-      var result = xhr.response ? JSON.parse(xhr.response) : null;
-      !!onDelete && onDelete(xhr.status == 200, result, xhr.response);
-    };
-    xhr.send();
+    if (confirm("Are you sure?")) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", baseUrl + "/delete?accessKey=" + accessKey + "&id=" + id);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.onload = function() {
+        var result = xhr.response ? JSON.parse(xhr.response) : null;
+        !!onDelete && onDelete(xhr.status == 200, result, xhr.response);
+      };
+      xhr.send();
+      window.location = "/";
+    }
   };
 
   self.loadSurveys();
 }
 
 ko.applyBindings(
-  new SurveyManager(
-    "https://surveyjs-aspnet-mvc.azurewebsites.net/api/Service"
-  ),
+  new SurveyManager(""),
   document.getElementById("surveys-list")
 );
