@@ -1,10 +1,10 @@
 # surveyjs-aspnet-mvc
-Sample .NET Core backend for SurveyJS library
+Sample .NET Core backend for SurveyJS: Survey Library and Survey Creator
 
 
 ## [SurveyJS Home Page](https://surveyjs.io/Examples/Service/)
 
-## [Live Online Survey + Builder Demo](https://surveyjs-aspnet-mvc.azurewebsites.net/)
+## [Live Online Survey + Survey Creator Demo](https://surveyjs-aspnet-mvc.azurewebsites.net/)
 
 
 ### Prerequisites
@@ -14,7 +14,7 @@ Sample .NET Core backend for SurveyJS library
 - Start applucation via `dotnet run` command
 
 At this point demo surveyjs-php service will be available at the `http://localhost:5000` address.
-If everything is ok, you should see project home page with list of available surveys and links to `Survey` and `Builder` pages.
+If everything is ok, you should see project home page with list of available surveys and links to `Survey` and `Survey Creator` pages.
 
 You can continue with survey via `Run` page, go through the survey and post results to the custom service.
-You can continue with editor via `Edit` page, change the survey and store survey JSON to the custom service.
+You can continue with Survey Creator via `Edit` page, change the survey and store survey JSON to the custom service.
