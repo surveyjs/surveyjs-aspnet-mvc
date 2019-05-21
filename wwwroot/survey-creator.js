@@ -25,7 +25,8 @@ function postEdit() {
   setSurveyName(surveyName);
   jQuery
     .get("/changeName?id=" + surveyId + "&name=" + surveyName, function(data) {
-      surveyId = data.Id;
+      surveyId = surveyName;
+      window.location = "survey-creator.html?id=" + surveyName;
     })
     .fail(function(error) {
       surveyName = oldName;
