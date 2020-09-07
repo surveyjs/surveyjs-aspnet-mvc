@@ -1,6 +1,8 @@
 # surveyjs-aspnet-mvc
 Sample .NET Core backend for SurveyJS: Survey Library and Survey Creator
 
+### Disclaimer
+This demo illustrates how to integrate SurveyJS libraries with ASP.NET Core backend. This demo doesn't cover all of real survey service application aspects, such as authentication, authorization, user management, access levels and different security issues. These aspects are covered by backend-specific articles, forums and documentation. This demo demos is just intergration one and can't be used as a real service.
 
 ## [SurveyJS Home Page](https://surveyjs.io/Examples/Service/)
 
