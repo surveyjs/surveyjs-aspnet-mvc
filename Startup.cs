@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Hosting;
 
 namespace surveyjs_aspnet_mvc
 {
@@ -28,26 +29,30 @@ namespace surveyjs_aspnet_mvc
             // Adds a default in-memory implementation of IDistributedCache.
             services.AddDistributedMemoryCache();
 
-            services.AddSession(options =>
-            {
+            services.AddSession(options => {
                 // Set a short timeout for easy testing.
                 options.IdleTimeout = TimeSpan.FromSeconds(300);
                 options.Cookie.HttpOnly = true;
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
 
             app.UseSession();
-            app.UseMvc();
+            app.UseRouting();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
+
         }
     }
 }
