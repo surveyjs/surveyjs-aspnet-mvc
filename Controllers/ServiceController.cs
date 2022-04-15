@@ -9,18 +9,17 @@ namespace surveyjs_aspnet_mvc.Controllers
 
     public class ChangeSurveyModel
     {
-        public string Id { get; set; }
-        public string Json { get; set; }
-        public string Text { get; set; }
+        public string id { get; set; }
+        public string text { get; set; }
     }
 
     public class PostSurveyResultModel
     {
         public string postId { get; set; }
-        public string surveyResult { get; set; }
+        public string surveyResultText { get; set; }
     }
 
-    [Route("")]
+    [Route("/api")]
     public class ServiceController : Controller
     {
 
@@ -32,18 +31,17 @@ namespace surveyjs_aspnet_mvc.Controllers
         }
 
         [HttpGet("getSurvey")]
-        public string GetSurvey(string surveyId)
+        public JsonResult GetSurvey(string surveyId)
         {
             var db = new SessionStorage(HttpContext.Session);
-            return db.GetSurvey(surveyId);
+            return Json(db.GetSurvey(surveyId));
         }
 
         [HttpGet("create")]
         public JsonResult Create(string name)
         {
             var db = new SessionStorage(HttpContext.Session);
-            db.StoreSurvey(name, "{}");
-            return Json("Ok");
+            return Json(db.CreateSurvey(name));
         }
 
         [HttpGet("changeName")]
@@ -55,11 +53,11 @@ namespace surveyjs_aspnet_mvc.Controllers
         }
 
         [HttpPost("changeJson")]
-        public string ChangeJson([FromBody]ChangeSurveyModel model)
+        public JsonResult ChangeJson([FromBody] ChangeSurveyModel model)
         {
             var db = new SessionStorage(HttpContext.Session);
-            db.StoreSurvey(model.Id, model.Json);
-            return db.GetSurvey(model.Id);
+            db.StoreSurvey(model.id, model.text);
+            return Json(db.GetSurvey(model.id));
         }
 
         [HttpGet("delete")]
@@ -67,15 +65,15 @@ namespace surveyjs_aspnet_mvc.Controllers
         {
             var db = new SessionStorage(HttpContext.Session);
             db.DeleteSurvey(id);
-            return Json("Ok");
+            return Json(new { id = id });
         }
 
         [HttpPost("post")]
-        public JsonResult PostResult([FromBody]PostSurveyResultModel model)
+        public JsonResult PostResult([FromBody] PostSurveyResultModel model)
         {
             var db = new SessionStorage(HttpContext.Session);
-            db.PostResults(model.postId, model.surveyResult);
-            return Json("Ok");
+            db.PostResults(model.postId, model.surveyResultText);
+            return Json(new { });
         }
 
         [HttpGet("results")]
