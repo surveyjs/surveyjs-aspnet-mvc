@@ -1,22 +1,26 @@
-# surveyjs-aspnet-mvc
-Sample .NET Core backend for SurveyJS: Survey Library and Survey Creator
+# SurveyJS + .NET Core Demo Example
 
-### Disclaimer
-This demo illustrates how to integrate SurveyJS libraries with ASP.NET Core backend. This demo doesn't cover all of real survey service application aspects, such as authentication, authorization, user management, access levels and different security issues. These aspects are covered by backend-specific articles, forums and documentation. This demo demos is just intergration one and can't be used as a real service.
+This demo shows how to integrate [SurveyJS](https://surveyjs.io/) components with a .NET Core backend.
 
-## [SurveyJS Home Page](https://surveyjs.io/Examples/Service/)
+[View Demo Online](https://surveyjs-aspnet-core.azurewebsites.net/)
 
-## [Live Online Survey + Survey Creator Demo](https://surveyjs-aspnet-mvc.azurewebsites.net/)
+## Disclaimer
 
+This demo must not be used as a real service as it doesn't cover such real-world survey service aspects as authentication, authorization, user management, access levels, and different security issues. These aspects are covered by backend-specific articles, forums, and documentation.
 
-### Prerequisites
-- Install [.NET Core](https://www.microsoft.com/net/download/core) on your computer
-- Clone this repository in the `surveyjs-aspnet-mvc` folder
-- Build surveyjs-aspnet-mvc application via `dotnet build` command in the `surveyjs-aspnet-mvc` folder
-- Start applucation via `dotnet run` command
+## Run the Application
 
-At this point demo surveyjs-php service will be available at the `http://localhost:5000` address.
-If everything is ok, you should see project home page with list of available surveys and links to `Survey` and `Survey Creator` pages.
+Install [.NET](https://dotnet.microsoft.com/en-us/download) on your machine. After that, run the following commands:
 
-You can continue with survey via `Run` page, go through the survey and post results to the custom service.
-You can continue with Survey Creator via `Edit` page, change the survey and store survey JSON to the custom service.
+```bash
+git clone https://github.com/surveyjs/surveyjs-aspnet-mvc.git
+cd surveyjs-aspnet-mvc
+dotnet build
+dotnet run
+```
+
+Open http://localhost:5000 in your web browser.
+
+## Client-Side App
+
+The client-side part is the `surveyjs-react-client` React application. The current project includes only the application's build artifacts. Refer to the [surveyjs-react-client](https://github.com/surveyjs/surveyjs-react-client) repo for full code and information about the application.
