@@ -27,11 +27,10 @@ namespace surveyjs_aspnet_mvc
             SurveyDefinition survey1 = new SurveyDefinition
             {
                 id = "1",
-                name = "Product feedback survey",
+                name = "Product Feedback Survey",
                 json = @"{
                     ""pages"": [
                     {
-                    ""name"": ""page1"",
                     ""elements"": [
                     {
                         ""type"": ""matrix"",
@@ -40,7 +39,7 @@ namespace surveyjs_aspnet_mvc
                         ""columns"": [
                         {
                         ""value"": 1,
-                        ""text"": ""Strongly Disagree""
+                        ""text"": ""Strongly disagree""
                         },
                         {
                         ""value"": 2,
@@ -56,7 +55,7 @@ namespace surveyjs_aspnet_mvc
                         },
                         {
                         ""value"": 5,
-                        ""text"": ""Strongly Agree""
+                        ""text"": ""Strongly agree""
                         }
                         ],
                         ""rows"": [
@@ -81,8 +80,8 @@ namespace surveyjs_aspnet_mvc
                     {
                         ""type"": ""rating"",
                         ""name"": ""satisfaction"",
-                        ""title"": ""How satisfied are you with the Product?"",
-                        ""minRateDescription"": ""Not Satisfied"",
+                        ""title"": ""How satisfied are you with the product?"",
+                        ""minRateDescription"": ""Not satisfied"",
                         ""maxRateDescription"": ""Completely satisfied""
                     },
                     {
@@ -90,24 +89,23 @@ namespace surveyjs_aspnet_mvc
                         ""name"": ""recommend friends"",
                         ""visible"": false,
                         ""visibleIf"": ""{satisfaction} > 3"",
-                        ""title"": ""How likely are you to recommend the Product to a friend or co-worker?"",
-                        ""minRateDescription"": ""Will not recommend"",
-                        ""maxRateDescription"": ""I will recommend""
+                        ""title"": ""How likely are you to recommend the product to a friend or colleague?"",
+                        ""minRateDescription"": ""Won't recommend"",
+                        ""maxRateDescription"": ""Will recommend""
                     },
                     {
                         ""type"": ""comment"",
                         ""name"": ""suggestions"",
-                        ""title"": ""What would make you more satisfied with the Product?""
+                        ""title"": ""What would make you more satisfied with the product?""
                     }
                     ]
                     },
                     {
-                    ""name"": ""page2"",
                     ""elements"": [
                     {
                         ""type"": ""radiogroup"",
                         ""name"": ""price to competitors"",
-                        ""title"": ""Compared to our competitors, do you feel the Product is"",
+                        ""title"": ""Compared to our competitors, do you feel the product is"",
                         ""choices"": [
                         ""Less expensive"",
                         ""Priced about the same"",
@@ -126,11 +124,11 @@ namespace surveyjs_aspnet_mvc
                         },
                         {
                         ""value"": ""low"",
-                        ""text"": ""No, the price is too low for your product""
+                        ""text"": ""No, the price is too low""
                         },
                         {
                         ""value"": ""high"",
-                        ""text"": ""No, the price is too high for your product""
+                        ""text"": ""No, the price is too high""
                         }
                         ]
                     },
@@ -141,7 +139,7 @@ namespace surveyjs_aspnet_mvc
                         ""items"": [
                         {
                         ""name"": ""mostamount"",
-                        ""title"": ""Most amount you would every pay for a product like ours""
+                        ""title"": ""Most amount you would pay for a product like ours""
                         },
                         {
                         ""name"": ""leastamount"",
@@ -152,12 +150,11 @@ namespace surveyjs_aspnet_mvc
                     ]
                     },
                     {
-                    ""name"": ""page3"",
                     ""elements"": [
                     {
                         ""type"": ""text"",
                         ""name"": ""email"",
-                        ""title"": ""Thank you for taking our survey. Your survey is almost complete, please enter your email address in the box below if you wish to participate in our drawing, then press the 'Submit' button.""
+                        ""title"": ""Thank you for taking our survey. Please enter your email address and press the \""Submit\"" button.""
                     }
                     ]
                     }
@@ -167,8 +164,8 @@ namespace surveyjs_aspnet_mvc
 
             SurveyDefinition survey2 = new SurveyDefinition
             {
-                id = "1",
-                name = "Customer and his/her partner income survey",
+                id = "2",
+                name = "Customer and their partner income survey",
                 json = @"{
                     ""completeText"": ""Finish"",
                     ""pageNextText"": ""Continue"",
@@ -182,7 +179,7 @@ namespace surveyjs_aspnet_mvc
                                         {
                                             ""type"": ""html"",
                                             ""name"": ""income_intro"",
-                                            ""html"": ""Income. In this section, you will be asked about your current employment and any other way you and your partner currently receive income. It will be handy to have the following in front of you: Payslip (for employment details), A current Centrelink Schedule for any account based pension from super, annuities, or other income stream products that you own. If you don't have a current one you can get these schedules by contacting your income stream provider. Latest statement from any payments (from Centrelink or other authority).""
+                                            ""html"": ""Income. In this section, you will be asked about your current employment status and other ways you and your partner receive income. It will be handy to have the following in front of you: payslip (for employment details), latest statement from any payments (from Centrelink or other authority), a current Centrelink Schedule for any account-based pension from super, annuities, or other income stream products that you may own. If you don't have a current one, you can get these schedules by contacting your income stream provider.""
                                         }
                                     ],
                                     ""name"": ""panel1""
@@ -238,7 +235,7 @@ namespace surveyjs_aspnet_mvc
                                                     ""visibleIf"": ""{member_receives_income_from_employment} =1"",
                                                     ""title"": ""  "",
                                                     ""isRequired"": true,
-                                                    ""choices"": [""Self employment"", ""All other types of employment""]
+                                                    ""choices"": [""Self-employed"", ""Other types of employment""]
                                                 }
                                             ],
                                             ""name"": ""panel2"",
@@ -268,12 +265,12 @@ namespace surveyjs_aspnet_mvc
                                                     ""visibleIf"": ""{partner_receives_income_from_employment} =1"",
                                                     ""title"": "" "",
                                                     ""isRequired"": true,
-                                                    ""choices"": [""Self employment"", ""All other types of employment""]
+                                                    ""choices"": [""Self-employed"", ""Other types of employment""]
                                                 }
                                             ],
                                             ""name"": ""panel1"",
                                             ""startWithNewLine"": false,
-                                            ""title"": ""Your Partner"",
+                                            ""title"": ""Your partner"",
                                             ""visible"": false,
                                             ""visibleIf"": ""{maritalstatus_c} = 'Married' or {maritalstatus_c} = 'In a registered relationship' or {maritalstatus_c} = 'Living with my partner'""
                                         }
@@ -294,9 +291,9 @@ namespace surveyjs_aspnet_mvc
                                                 {
                                                     ""type"": ""paneldynamic"",
                                                     ""minPanelCount"": 1,
-                                                    ""name"": ""member_arrray_employer_names"",
-                                                    ""valueName"": ""member_arrray_employer"",
-                                                    ""title"": ""Please enter all your employers"",
+                                                    ""name"": ""member_array_employer_names"",
+                                                    ""valueName"": ""member_array_employer"",
+                                                    ""title"": ""Enter information about your employers"",
                                                     ""panelAddText"": ""Add another employer"",
                                                     ""panelCount"": 1,
                                                     ""templateElements"": [
@@ -304,7 +301,7 @@ namespace surveyjs_aspnet_mvc
                                                             ""type"": ""text"",
                                                             ""name"": ""member_employer_name"",
                                                             ""valueName"": ""name"",
-                                                            ""title"": ""Name of employer""
+                                                            ""title"": ""Employer name""
                                                         }
                                                     ]
                                                 }
@@ -312,16 +309,16 @@ namespace surveyjs_aspnet_mvc
                                             ""name"": ""panel2"",
                                             ""title"": ""You"",
                                             ""visible"": false,
-                                            ""visibleIf"": ""{member_type_of_employment} contains 'All other types of employment'""
+                                            ""visibleIf"": ""{member_type_of_employment} contains 'Other types of employment'""
                                         }, {
                                             ""type"": ""panel"",
                                             ""elements"": [
                                                 {
                                                     ""type"": ""paneldynamic"",
                                                     ""minPanelCount"": 1,
-                                                    ""name"": ""partner_arrray_employer_names"",
-                                                    ""valueName"": ""partner_arrray_employer"",
-                                                    ""title"": ""Please enter all your partner employers"",
+                                                    ""name"": ""partner_array_employer_names"",
+                                                    ""valueName"": ""partner_array_employer"",
+                                                    ""title"": ""Enter information about employers of your partner"",
                                                     ""panelAddText"": ""Add another employer"",
                                                     ""panelCount"": 1,
                                                     ""templateElements"": [
@@ -329,25 +326,25 @@ namespace surveyjs_aspnet_mvc
                                                             ""type"": ""text"",
                                                             ""name"": ""partner_employer_name"",
                                                             ""valueName"": ""name"",
-                                                            ""title"": ""Name of employer""
+                                                            ""title"": ""Employer name""
                                                         }
                                                     ]
                                                 }
                                             ],
                                             ""name"": ""panel8"",
                                             ""startWithNewLine"": false,
-                                            ""title"": ""Your Partner"",
+                                            ""title"": ""Your partner"",
                                             ""visible"": false,
-                                            ""visibleIf"": ""{partner_type_of_employment} contains 'All other types of employment'""
+                                            ""visibleIf"": ""{partner_type_of_employment} contains 'Other types of employment'""
                                         }
                                     ],
                                     ""name"": ""panel6"",
-                                    ""title"": ""Who are you employed by?""
+                                    ""title"": ""Employers""
                                 }
                             ],
                             ""name"": ""page3.1"",
                             ""visible"": false,
-                            ""visibleIf"": ""{member_type_of_employment} contains 'All other types of employment' or {partner_type_of_employment} contains 'All other types of employment'""
+                            ""visibleIf"": ""{member_type_of_employment} contains 'Other types of employment' or {partner_type_of_employment} contains 'Other types of employment'""
                         }, {
                             ""elements"": [
                                 {
@@ -361,21 +358,21 @@ namespace surveyjs_aspnet_mvc
                                                     ""renderMode"": ""progressTop"",
                                                     ""allowAddPanel"": false,
                                                     ""allowRemovePanel"": false,
-                                                    ""name"": ""member_arrray_employer_info"",
+                                                    ""name"": ""member_array_employer_info"",
                                                     ""title"": ""Your employers"",
-                                                    ""valueName"": ""member_arrray_employer"",
+                                                    ""valueName"": ""member_array_employer"",
                                                     ""panelCount"": 1,
                                                     ""templateElements"": [
                                                         {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_member_employer_address"",
-                                                            ""title"": ""Address"",
+                                                            ""title"": ""Contacts"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""text"",
                                                                     ""name"": ""member_employer_address"",
                                                                     ""valueName"": ""address"",
-                                                                    ""title"": ""Address""
+                                                                    ""title"": ""Address:""
                                                                 }, {
                                                                     ""type"": ""text"",
                                                                     ""name"": ""member_employer_phone"",
@@ -385,28 +382,28 @@ namespace surveyjs_aspnet_mvc
                                                                     ""type"": ""text"",
                                                                     ""name"": ""member_employer_abn"",
                                                                     ""valueName"": ""abn"",
-                                                                    ""title"": ""ABN""
+                                                                    ""title"": ""ABN:""
                                                                 }
                                                             ]
                                                         }, {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_member_employer_role"",
-                                                            ""title"": ""What is your role?"",
+                                                            ""title"": ""Are you a full time worker?"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""radiogroup"",
                                                                     ""choices"": [
-                                                                        ""Full time"", ""Part time"", ""Casual"", ""Seasonal""
+                                                                        ""Full-time"", ""Part-time"", ""Casual"", ""Seasonal""
                                                                     ],
                                                                     ""name"": ""member_employer_role"",
-                                                                    ""title"": ""Your role"",
+                                                                    ""title"": "" "",
                                                                     ""valueName"": ""role""
                                                                 }
                                                             ]
                                                         }, {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_member_employer_hours_work"",
-                                                            ""title"": ""What hours do you work?"",
+                                                            ""title"": ""How many hours do you work?"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""text"",
@@ -417,17 +414,17 @@ namespace surveyjs_aspnet_mvc
                                                                 }, {
                                                                     ""type"": ""dropdown"",
                                                                     ""name"": ""member_employer_hours_worked_frequency"",
-                                                                    ""title"": ""Worked Frequency:"",
+                                                                    ""title"": ""Work frequency:"",
                                                                     ""valueName"": ""hours_worked_frequency"",
                                                                     ""startWithNewLine"": false,
-                                                                    ""defaultValue"": ""Year"",
+                                                                    ""defaultValue"": ""Day"",
                                                                     ""choices"": [""Day"", ""Week"", ""Fortnight"", ""Month"", ""Year""]
                                                                 }
                                                             ]
                                                         }, {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_member_employer_income"",
-                                                            ""title"": ""What income do you receive?"",
+                                                            ""title"": ""What is your income?"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""text"",
@@ -438,10 +435,10 @@ namespace surveyjs_aspnet_mvc
                                                                 }, {
                                                                     ""type"": ""dropdown"",
                                                                     ""name"": ""member_employer_income_frequency"",
-                                                                    ""title"": ""Income Frequency"",
+                                                                    ""title"": ""Income frequency:"",
                                                                     ""valueName"": ""income_frequency"",
                                                                     ""startWithNewLine"": false,
-                                                                    ""defaultValue"": ""Year"",
+                                                                    ""defaultValue"": ""Month"",
                                                                     ""choices"": [""Day"", ""Week"", ""Fortnight"", ""Month"", ""Year""]
                                                                 }
                                                             ]
@@ -452,7 +449,7 @@ namespace surveyjs_aspnet_mvc
                                             ],
                                             ""name"": ""panel17"",
                                             ""title"": ""You"",
-                                            ""visibleIf"": ""{member_type_of_employment} contains 'All other types of employment'""
+                                            ""visibleIf"": ""{member_type_of_employment} contains 'Other types of employment'""
                                         }, {
                                             ""type"": ""panel"",
                                             ""elements"": [
@@ -461,15 +458,15 @@ namespace surveyjs_aspnet_mvc
                                                     ""renderMode"": ""progressTop"",
                                                     ""allowAddPanel"": false,
                                                     ""allowRemovePanel"": false,
-                                                    ""name"": ""partner_arrray_employer_info"",
-                                                    ""title"": ""Your partner employers"",
-                                                    ""valueName"": ""partner_arrray_employer"",
+                                                    ""name"": ""partner_array_employer_info"",
+                                                    ""title"": ""Employers"",
+                                                    ""valueName"": ""partner_array_employer"",
                                                     ""panelCount"": 1,
                                                     ""templateElements"": [
                                                         {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_partner_employer_address"",
-                                                            ""title"": ""Address"",
+                                                            ""title"": ""Contacts"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""text"",
@@ -480,54 +477,54 @@ namespace surveyjs_aspnet_mvc
                                                                     ""type"": ""text"",
                                                                     ""name"": ""partner_employer_phone"",
                                                                     ""valueName"": ""phone"",
-                                                                    ""title"": ""Phone number""
+                                                                    ""title"": ""Phone number:""
                                                                 }, {
                                                                     ""type"": ""text"",
                                                                     ""name"": ""partner_employer_abn"",
                                                                     ""valueName"": ""abn"",
-                                                                    ""title"": ""ABN""
+                                                                    ""title"": ""ABN:""
                                                                 }
                                                             ]
                                                         }, {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_partner_employer_role"",
-                                                            ""title"": ""What is your role?"",
+                                                            ""title"": ""Are you a full time worker?"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""radiogroup"",
                                                                     ""choices"": [
-                                                                        ""Full time"", ""Part time"", ""Casual"", ""Seasonal""
+                                                                        ""Full-time"", ""Part-time"", ""Casual"", ""Seasonal""
                                                                     ],
                                                                     ""name"": ""partner_employer_role"",
-                                                                    ""title"": ""Your role"",
+                                                                    ""title"": "" "",
                                                                     ""valueName"": ""role""
                                                                 }
                                                             ]
                                                         }, {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_partner_employer_hours_work"",
-                                                            ""title"": ""What hours do you work?"",
+                                                            ""title"": ""How many hours do you work?"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""text"",
                                                                     ""inputType"": ""number"",
                                                                     ""name"": ""partner_employer_hours_worked"",
                                                                     ""valueName"": ""hours_worked"",
-                                                                    ""title"": ""Hours""
+                                                                    ""title"": ""Hours:""
                                                                 }, {
                                                                     ""type"": ""dropdown"",
                                                                     ""name"": ""partner_employer_hours_worked_frequency"",
                                                                     ""valueName"": ""hours_worked_frequency"",
-                                                                    ""title"": ""Worked Frequency:"",
+                                                                    ""title"": ""Work frequency:"",
                                                                     ""startWithNewLine"": false,
-                                                                    ""defaultValue"": ""Year"",
+                                                                    ""defaultValue"": ""Day"",
                                                                     ""choices"": [""Day"", ""Week"", ""Fortnight"", ""Month"", ""Year""]
                                                                 }
                                                             ]
                                                         }, {
                                                             ""type"": ""panel"",
                                                             ""name"": ""panel_partner_employer_income"",
-                                                            ""title"": ""What income do you receive?"",
+                                                            ""title"": ""What is your income?"",
                                                             ""elements"": [
                                                                 {
                                                                     ""type"": ""text"",
@@ -541,7 +538,7 @@ namespace surveyjs_aspnet_mvc
                                                                     ""valueName"": ""income_frequency"",
                                                                     ""title"": ""Income frequency:"",
                                                                     ""startWithNewLine"": false,
-                                                                    ""defaultValue"": ""Year"",
+                                                                    ""defaultValue"": ""Month"",
                                                                     ""choices"": [""Day"", ""Week"", ""Fortnight"", ""Month"", ""Year""]
                                                                 }
                                                             ]
@@ -552,16 +549,16 @@ namespace surveyjs_aspnet_mvc
                                             ],
                                             ""name"": ""panel18"",
                                             ""startWithNewLine"": false,
-                                            ""title"": ""You partner"",
-                                            ""visibleIf"": ""{partner_type_of_employment} contains 'All other types of employment'""
+                                            ""title"": ""Your partner"",
+                                            ""visibleIf"": ""{partner_type_of_employment} contains 'Other types of employment'""
                                         }
                                     ],
                                     ""name"": ""panel16"",
-                                    ""title"": ""Tells us about your employer(s)""
+                                    ""title"": ""Enter information about your employers""
                                 }
                             ],
                             ""name"": ""page3.2"",
-                            ""visibleIf"": ""{member_type_of_employment} contains 'All other types of employment' or {partner_type_of_employment} contains 'All other types of employment'""
+                            ""visibleIf"": ""{member_type_of_employment} contains 'Other types of employment' or {partner_type_of_employment} contains 'Other types of employment'""
                         }, {
                             ""elements"": [
                                 {
@@ -610,7 +607,7 @@ namespace surveyjs_aspnet_mvc
                                             ""name"": ""panel2"",
                                             ""title"": ""You"",
                                             ""visible"": false,
-                                            ""visibleIf"": ""{member_type_of_employment} contains 'All other types of employment'""
+                                            ""visibleIf"": ""{member_type_of_employment} contains 'Other types of employment'""
                                         }, {
                                             ""type"": ""panel"",
                                             ""elements"": [
@@ -655,7 +652,7 @@ namespace surveyjs_aspnet_mvc
                                             ""startWithNewLine"": false,
                                             ""title"": ""Your Partner"",
                                             ""visible"": false,
-                                            ""visibleIf"": ""{partner_type_of_employment} contains 'All other types of employment'""
+                                            ""visibleIf"": ""{partner_type_of_employment} contains 'Other types of employment'""
                                         }
                                     ],
                                     ""name"": ""panel9"",
@@ -664,7 +661,7 @@ namespace surveyjs_aspnet_mvc
                             ],
                             ""name"": ""page4"",
                             ""visible"": false,
-                            ""visibleIf"": ""{member_type_of_employment} contains 'All other types of employment' or {partner_type_of_employment} contains 'All other types of employment'""
+                            ""visibleIf"": ""{member_type_of_employment} contains 'Other types of employment' or {partner_type_of_employment} contains 'Other types of employment'""
                         }, {
                             ""elements"": [
                                 {

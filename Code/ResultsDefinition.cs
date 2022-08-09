@@ -27,9 +27,9 @@ namespace surveyjs_aspnet_mvc
                 @"{""Quality"":{""affordable"":""3"",""does what it claims"":""2"",""better then others"":""2"",""easy to use"":""3""},""satisfaction"":3,""suggestions"":""better support"",""price to competitors"":""Not sure"",""price"":""high"",""pricelimit"":{""mostamount"":""60"",""leastamount"":""10""}}"
             });
             SurveyResultsDefinition surveyResults2 = new SurveyResultsDefinition { id = "2" };
-            surveyResults1.data.AddRange(new string[] {
-                @"{""member_arrray_employer"":[{}],""partner_arrray_employer"":[{}],""maritalstatus_c"":""Married"",""member_receives_income_from_employment"":""0"",""partner_receives_income_from_employment"":""0""}",
-                @"{""member_arrray_employer"":[{}],""partner_arrray_employer"":[{}],""maritalstatus_c"":""Single"",""member_receives_income_from_employment"":""1"",""member_type_of_employment"":[""Self employment""],""member_seasonal_intermittent_or_contract_work"":""0""}"
+            surveyResults2.data.AddRange(new string[] {
+                @"{""member_array_employer"":[{}],""partner_array_employer"":[{}],""maritalstatus_c"":""Married"",""member_receives_income_from_employment"":""0"",""partner_receives_income_from_employment"":""0""}",
+                @"{""member_array_employer"":[{}],""partner_array_employer"":[{}],""maritalstatus_c"":""Single"",""member_receives_income_from_employment"":""1"",""member_type_of_employment"":[""Self employment""],""member_seasonal_intermittent_or_contract_work"":""0""}"
             });
 
             List<SurveyResultsDefinition> defaultSurveyResults = new List<SurveyResultsDefinition> { surveyResults1, surveyResults2 };
