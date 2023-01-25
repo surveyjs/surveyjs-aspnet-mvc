@@ -7,10 +7,12 @@ namespace surveyjs_aspnet_mvc.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IStorage _storage;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IStorage storage)
     {
         _logger = logger;
+        _storage = storage;
     }
 
     public IActionResult Index()
@@ -20,7 +22,7 @@ public class HomeController : Controller
 
     public IActionResult MySurveys()
     {
-        return View();
+        return View(new { Surveys = _storage.GetSurveys() });
     }
 
     public IActionResult Privacy()

@@ -1,4 +1,6 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using surveyjs_aspnet_mvc;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -6,6 +8,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession(options => {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
 });
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
+
+builder.Services.AddScoped<IStorage, SessionStorage>();
 
 var app = builder.Build();
 

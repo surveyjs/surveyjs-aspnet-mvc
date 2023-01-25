@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "My Surveys";
+}
+
+@* <script defer="defer" src="~/static/js/main.7f897b90.js"></script>
+<link href="~/static/css/main.d6b899b4.css" rel="stylesheet"> *@
+
+<div class="text-center">
+    <h1 class="display-4">My Surveys</h1>
+    @* <div id="root"></div> *@
+    <table>
+        <th>
+            <td>Name</td>
+            <td></td>
+        </th>
+        @foreach (var survey in Model.Surveys) {
+            <tr>
+                <td>@survey.name</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Survey", new { id = survey.id })</td>
+            </tr>
+        }
+    </table>
+</div>

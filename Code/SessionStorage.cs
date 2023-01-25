@@ -8,22 +8,21 @@ using Newtonsoft.Json;
 
 namespace surveyjs_aspnet_mvc
 {
-    public class SessionStorage
+    public class SessionStorage: IStorage
     {
-        private ISession session;
+        private readonly ISession _session;
 
-        public SessionStorage(ISession session)
-        {
-            this.session = session;
+        public SessionStorage(IHttpContextAccessor httpContextAccessor) {
+            _session = httpContextAccessor!.HttpContext.Session;
         }
 
         public T GetFromSession<T>(string storageId, T defaultValue)
         {
-            if (string.IsNullOrEmpty(session.GetString(storageId)))
+            if (string.IsNullOrEmpty(_session.GetString(storageId)))
             {
-                session.SetString(storageId, JsonConvert.SerializeObject(defaultValue));
+                _session.SetString(storageId, JsonConvert.SerializeObject(defaultValue));
             }
-            var value = session.GetString(storageId);
+            var value = _session.GetString(storageId);
             return value == null ? default(T) : JsonConvert.DeserializeObject<T>(value);
         }
 
@@ -51,7 +50,7 @@ namespace surveyjs_aspnet_mvc
                 survey.name = name;
             }
             storage.Add(survey);
-            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+            _session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
             return survey;
         }
 
@@ -60,7 +59,7 @@ namespace surveyjs_aspnet_mvc
             var storage = GetSurveys();
             var survey = SurveyDefinition.FindById(storage, surveyId);
             survey.json = jsonString;
-            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+            _session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
         }
 
         public void ChangeName(string id, string name)
@@ -68,7 +67,7 @@ namespace surveyjs_aspnet_mvc
             var storage = GetSurveys();
             var survey = SurveyDefinition.FindById(storage, id);
             survey.name = name;
-            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+            _session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
         }
 
         public void DeleteSurvey(string surveyId)
@@ -76,7 +75,7 @@ namespace surveyjs_aspnet_mvc
             var storage = GetSurveys();
             var survey = SurveyDefinition.FindById(storage, surveyId);
             storage.Remove(survey);
-            session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
+            _session.SetString("SurveyStorage", JsonConvert.SerializeObject(storage));
         }
 
         public void PostResults(string postId, string resultJson)
@@ -89,7 +88,7 @@ namespace surveyjs_aspnet_mvc
                 storage.Add(results);
             }
             results.data.Add(resultJson);
-            session.SetString("ResultsStorage", JsonConvert.SerializeObject(storage));
+            _session.SetString("ResultsStorage", JsonConvert.SerializeObject(storage));
         }
 
         public SurveyResultsDefinition GetResults(string postId)
