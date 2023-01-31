@@ -22,7 +22,12 @@ public class SurveyController : Controller
 
     public IActionResult Edit(string id)
     {
-        return View();
+        return View(new { Survey = _storage.GetSurvey(id) });
+    }
+
+    public IActionResult Run(string id)
+    {
+        return View(new { Survey = _storage.GetSurvey(id) });
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

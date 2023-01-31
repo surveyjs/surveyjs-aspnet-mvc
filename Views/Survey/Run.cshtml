@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Run Survey";
+}
+
+<script>
+    var json = @Html.Raw(Model.Survey.json);
+</script>
+
+<script defer="defer" src="~/static/js/runner.js"></script>
+<link href="~/static/js/runner.css" rel="stylesheet">
+<link href="~/static/css/site.css" rel="stylesheet">
+
+<div class="text-center">
+    <div id="root"></div>
+</div>

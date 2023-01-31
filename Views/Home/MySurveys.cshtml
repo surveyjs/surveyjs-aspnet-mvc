@@ -9,14 +9,14 @@
     <h1 class="display-4">My Surveys</h1>
     @* <div id="root"></div> *@
     <table>
-        <th>
-            <td>Name</td>
-            <td></td>
-        </th>
+        <tr>
+            <th>Survey Name</th>
+            <th>Actions</th>
+        </tr>
         @foreach (var survey in Model.Surveys) {
             <tr>
                 <td>@survey.name</td>
-                <td>@Html.ActionLink("Edit", "Edit", "Survey", new { id = survey.id })</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Survey", new { id = survey.id }) @Html.ActionLink("Run", "Run", "Survey", new { id = survey.id })</td>
             </tr>
         }
     </table>

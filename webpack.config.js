@@ -3,7 +3,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "development",
-    entry: { site: "./src/app.tsx" },
+    entry: {
+        editor: "./src/edit.tsx",
+        runner: "./src/run.tsx"
+    },
     output: {
         path: path.resolve(__dirname, "./wwwroot/static/js"),
         filename: "[name].js"

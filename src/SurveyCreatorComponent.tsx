@@ -5,12 +5,12 @@ import "survey-creator-core/survey-creator-core.i18n.js";
 import "survey-core/defaultV2.css";
 import "survey-creator-core/survey-creator-core.css";
 
-function SurveyCreatorRenderComponent() {
+function SurveyCreatorRenderComponent(props) {
     const options = {
         showLogicTab: true
     };
     const creator = new SurveyCreator(options);
-    creator.JSON = {};
+    creator.JSON = props.json || {};
     return (<SurveyCreatorComponent creator={creator} />);
 }
 

@@ -2,8 +2,12 @@
     ViewData["Title"] = "Edit Survey";
 }
 
-<script defer="defer" src="~/static/js/site.js"></script>
-<link href="~/static/js/site.css" rel="stylesheet">
+<script>
+    var json = @Html.Raw(Model.Survey.json);
+</script>
+
+<script defer="defer" src="~/static/js/editor.js"></script>
+<link href="~/static/js/editor.css" rel="stylesheet">
 <link href="~/static/css/site.css" rel="stylesheet">
 
 <div class="text-center">
