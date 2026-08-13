@@ -2,7 +2,7 @@
 
 This demo shows how to integrate [SurveyJS](https://surveyjs.io/) components with a .NET Core backend.
 
-[View Demo Online](https://surveyjs-aspnet-core.azurewebsites.net/)
+[View Demo Online](https://surveyjs-aspnet-mvc.demos.surveyjs.io/)
 
 ## Disclaimer
 
