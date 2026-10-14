@@ -1,1 +1,37 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="SurveyJS service demo application with React/Redux"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>SurveyJS Service</title><script defer="defer" src="/static/js/main.01e49255.js"></script><link href="/static/css/main.ca630adb.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Surveys - SurveyJS + ASP.NET Core</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <div class="sjs-app">
+        <header class="sjs-app__header">
+            <div class="sjs-app__header-inner">
+                <a href="https://surveyjs.io/" class="sjs-app__logo-link" target="_blank" rel="noopener noreferrer">
+                    <img src="images/logo.svg" class="sjs-app__logo" alt="SurveyJS Logo" />
+                </a>
+                <nav><a class="sjs-nav-button" href="./">My Surveys</a></nav>
+            </div>
+        </header>
+        <main class="sjs-app__content">
+            <div class="sjs-surveys">
+                <h1>My Surveys</h1>
+                <table class="sjs-surveys-list"><tbody id="surveysList"></tbody></table>
+                <div class="sjs-surveys-list__footer">
+                    <button type="button" class="sjs-button sjs-add-btn" id="addSurvey">Add Survey</button>
+                </div>
+            </div>
+        </main>
+        <footer class="sjs-app__footer">
+            <div class="sjs-app__footer-inner">Copyright © Devsoft Baltic OÜ. All rights reserved.</div>
+        </footer>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/surveys.js"></script>
+</body>
+</html>

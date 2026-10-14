@@ -10,7 +10,7 @@ This demo must not be used as a real service as it doesn't cover such real-world
 
 ## Run the Application
 
-Install [.NET](https://dotnet.microsoft.com/en-us/download) on your machine. After that, run the following commands:
+Install [.NET 10](https://dotnet.microsoft.com/en-us/download) or later on your machine. After that, run the following commands:
 
 ```bash
 git clone https://github.com/surveyjs/surveyjs-aspnet-mvc.git
@@ -23,7 +23,22 @@ Open http://localhost:5000 in your web browser.
 
 ## Client-Side App
 
-The client-side part is the `surveyjs-react-client` React application. The current project includes only the application's build artifacts. Refer to the [surveyjs-react-client](https://github.com/surveyjs/surveyjs-react-client) repo for full code and information about the application.
+The client side is a set of plain HTML pages in `wwwroot` that need no npm or build step. SurveyJS scripts and styles come from the official [SurveyJS NuGet packages](https://www.nuget.org/profiles/SurveyJS) referenced in `surveyjs-aspnet-mvc.csproj`. ASP.NET Core serves them as static web assets under `_content/SurveyJS.*/`.
+
+| Page | SurveyJS component | NuGet package |
+|---|---|---|
+| `index.html` | Survey list: add and remove surveys | - |
+| `run.html?id=...` | [Form Library](https://surveyjs.io/form-library/documentation/overview) runs the survey | `SurveyJS` |
+| `edit.html?id=...` | [Survey Creator](https://surveyjs.io/survey-creator/documentation/overview) edits the survey | `SurveyJS.Creator` |
+| `results.html?id=...` | [Dashboard](https://surveyjs.io/dashboard/documentation/overview) Table View shows the responses | `SurveyJS.Analytics` |
+
+To update SurveyJS, update the packages to the same version, for example: `dotnet add package SurveyJS.Creator`. The Table View also needs [Tabulator](https://tabulator.info/), which `results.html` loads from a CDN.
+
+Survey Creator and Dashboard are commercial products and display a license banner until you [set up your license key](https://surveyjs.io/remove-alert-banner). The Form Library is MIT-licensed.
+
+When you run the app from the build output, the `_content/` assets are only served in the `Development` environment. `dotnet run` sets it through `Properties/launchSettings.json`. Published output (`dotnet publish`) includes the assets and works in any environment.
+
+The backend keeps the same `/api` endpoints as before, so the [surveyjs-react-client](https://github.com/surveyjs/surveyjs-react-client) React application also works with it.
 
 ## Other Resources
 

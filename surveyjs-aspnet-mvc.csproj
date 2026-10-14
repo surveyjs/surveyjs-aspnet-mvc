@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.12" />
+    <PackageReference Include="SurveyJS" Version="3.2.1" />
+    <PackageReference Include="SurveyJS.Analytics" Version="3.2.1" />
+    <PackageReference Include="SurveyJS.Creator" Version="3.2.1" />
 </ItemGroup>
 
 </Project>

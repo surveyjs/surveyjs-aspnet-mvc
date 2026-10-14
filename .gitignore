@@ -46,7 +46,7 @@ dlldata.c
 project.lock.json
 project.fragment.lock.json
 artifacts/
-**/Properties/launchSettings.json
+# Properties/launchSettings.json is tracked: it sets the Development environment for dotnet run
 
 *_i.c
 *_p.c
