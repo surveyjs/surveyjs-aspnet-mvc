@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace surveyjs_aspnet_mvc.Controllers
+namespace surveyjs_aspnet_core.Controllers
 {
 
     public class ChangeSurveyModel

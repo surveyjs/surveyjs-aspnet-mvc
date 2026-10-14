@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Hosting;
 
-namespace surveyjs_aspnet_mvc
+namespace surveyjs_aspnet_core
 {
     public class Startup
     {

@@ -9,7 +9,7 @@
             "command": "dotnet",
             "args": [
                 "build",
-                "${workspaceRoot}/surveyjs-aspnet-mvc.csproj"
+                "${workspaceRoot}/surveyjs-aspnet-core.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {

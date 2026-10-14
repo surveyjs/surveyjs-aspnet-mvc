@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace surveyjs_aspnet_mvc
+namespace surveyjs_aspnet_core
 {
     public class Program
     {

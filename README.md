@@ -13,8 +13,8 @@ This demo must not be used as a real service as it doesn't cover such real-world
 Install [.NET 10](https://dotnet.microsoft.com/en-us/download) or later on your machine. After that, run the following commands:
 
 ```bash
-git clone https://github.com/surveyjs/surveyjs-aspnet-mvc.git
-cd surveyjs-aspnet-mvc
+git clone https://github.com/surveyjs/surveyjs-aspnet-core.git
+cd surveyjs-aspnet-core
 dotnet build
 dotnet run
 ```
@@ -23,7 +23,7 @@ Open http://localhost:5000 in your web browser.
 
 ## Client-Side App
 
-The client side is a set of plain HTML pages in `wwwroot` that need no npm or build step. SurveyJS scripts and styles come from the official [SurveyJS NuGet packages](https://www.nuget.org/profiles/SurveyJS) referenced in `surveyjs-aspnet-mvc.csproj`. ASP.NET Core serves them as static web assets under `_content/SurveyJS.*/`.
+The client side is a set of plain HTML pages in `wwwroot` that need no npm or build step. SurveyJS scripts and styles come from the official [SurveyJS NuGet packages](https://www.nuget.org/profiles/SurveyJS) referenced in `surveyjs-aspnet-core.csproj`. ASP.NET Core serves them as static web assets under `_content/SurveyJS.*/`.
 
 | Page | SurveyJS component | NuGet package |
 |---|---|---|

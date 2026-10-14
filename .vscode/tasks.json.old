@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/surveyjs-aspnet-mvc.csproj"
+                "${workspaceRoot}/surveyjs-aspnet-core.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace surveyjs_aspnet_mvc
+namespace surveyjs_aspnet_core
 {
     public class SessionStorage
     {
